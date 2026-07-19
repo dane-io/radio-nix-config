@@ -37,6 +37,8 @@
     qsstv
     gridtracker2
     pavucontrol
+    fastfetch
+    htop
   ];
 
   programs.firefox = {
