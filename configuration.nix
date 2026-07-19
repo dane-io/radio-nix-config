@@ -35,6 +35,7 @@
     wsjtx
     js8call
     qsstv
+    gridtracker2
     pavucontrol
   ];
 
