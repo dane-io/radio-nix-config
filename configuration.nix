@@ -39,6 +39,7 @@
     pavucontrol
     fastfetch
     htop
+    lsusb
   ];
 
   programs.firefox = {
@@ -65,6 +66,28 @@
             installation_mode = "force_installed";
         };
       };
+
+      Homepage = {
+        URL = "about:blank";
+        StartPage = "homepage";
+        Locked = false;
+      };
+
+      NewTabPage = false;
+      DisplayBookmarksToolbar = "always";
+
+      Bookmarks = [
+        {
+          Title = "QRZ";
+          URL = "https://www.qrz.com/";
+          Placement = "toolbar";
+        }
+        {
+          Title = "PSKReporter";
+          URL = "https://pskreporter.info/pskmap.html";
+          Placement = "toolbar";
+        }
+      ];
     };
   };
 
