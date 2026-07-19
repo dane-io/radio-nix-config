@@ -9,5 +9,5 @@
 ## Rebuild config
 From this repository, do the following (choose relevant platform):
 ```bash
-sudo nixos-rebuild switch -I nixos-config./<PLATFORM>.nix
+sudo nixos-rebuild switch -I nixos-config=./<PLATFORM>.nix
 ```
