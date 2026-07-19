@@ -31,7 +31,6 @@
   environment.systemPackages = with pkgs; [
     git
     xfce.xfce4-whiskermenu-plugin
-    firefox-esr
     flrig
     wsjtx
     js8call
@@ -39,6 +38,35 @@
     gridtracker2
     pavucontrol
   ];
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-esr;
+
+    policies = {
+      DisableTelemetry = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableFeedbackCommands = true;
+      DontCheckDefaultBrowser = true;
+
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+
+      ExtensionSettings = {
+        "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+        # uBlock Origin:
+        "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+        };
+      };
+    };
+  };
 
   hardware.enableRedistributableFirmware = true;
 
