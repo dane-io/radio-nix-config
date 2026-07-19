@@ -30,7 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     git
-    xfce.xfce4-whiskermenu-plugin
+    xfce4-whiskermenu-plugin
     flrig
     wsjtx
     js8call
@@ -47,8 +47,6 @@
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       DisablePocket = true;
-      DisableFeedbackCommands = true;
-      DontCheckDefaultBrowser = true;
 
       EnableTrackingProtection = {
         Value = true;
