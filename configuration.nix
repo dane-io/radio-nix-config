@@ -29,6 +29,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    git
     firefox-esr
     flrig
     wsjtx
