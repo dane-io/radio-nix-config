@@ -30,6 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     git
+    xfce4.xfce-whiskermenu-plugin
     firefox-esr
     flrig
     wsjtx
