@@ -1,7 +1,10 @@
 { ... }:
 
 {
-  imports = [ ./configuration.nix ];
+  imports = [ 
+    ./configuration.nix
+    /etc/nixos/hardware-configuration.nix
+  ];
   networking.hostName = "radio-vm";
 
   boot.loader.grub.enable = true;
