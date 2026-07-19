@@ -39,7 +39,7 @@
     pavucontrol
     fastfetch
     htop
-    lsusb
+    usbutils
   ];
 
   programs.firefox = {
