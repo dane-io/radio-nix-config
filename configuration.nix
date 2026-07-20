@@ -35,9 +35,6 @@
     allowReboot = false;
   };
 
-  # Keep the newest 10 generations available in the boot menu.
-  boot.loader.systemd-boot.configurationLimit = 10;
-
   # Remove system generations and store paths older than 30 days.
   nix.gc = {
     automatic = true;

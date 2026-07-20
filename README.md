@@ -2,20 +2,33 @@
 ## Install on Raspberry Pi 4
 1. Download the SD image from [https://hydra.nixos.org/job/nixos/release-26.05/nixos.sd_image.aarch64-linux](https://hydra.nixos.org/job/nixos/release-26.05/nixos.sd_image.aarch64-linux)
 1. Unzip image with `unzstd` and install using Raspberry Pi Imager. (Don't change settings)
+1. I noticed a misbehaving USB device enumerating over and over. Suppress these messages temporarily with `sudo dmesg -D`
 1. On the RPi, connect to WiFi with `nmtui`
 1. On the RPi, open a root shell with `sudo -i`
 1. On the RPi, generate default config with `nixos-generate-config`
 1. Add `git` to the packages in the default configuration and run `nixos-rebuild switch`
-   - When doing this, leave the root shell open so you don't lose sudo priveleges after regenerating the config
-1. Clone this repo on the RPi and follow [Rebuild config](#rebuild-config). Note, omit `sudo` since you're already in a root shell
-1. Add password to user with `passwd dane` **before rebooting**
-1. Reboot and login normally. At this point, reclone the git repo under the regular user and track from there
-1. Once satisfied that the system is working, delete the old configs to remove easy root access, etc: `sudo nix-collect-garbage -d`
+   - When doing this, leave the root shell open so you don't lose sudo privileges after regenerating the config
+1. Clone this repo on the RPi under `/etc/nixos/`. Should result in a folder at `/etc/nixos/radio-nix-config/`
+1. Edit `/etc/nixos/configuration.nix` to be the following and run `nixos-rebuild switch` again:
+    ```nix
+    { ... }:
 
-## Rebuild config
-From this repository, do the following (choose relevant platform):
+    {
+    imports = [
+        ./radio-nix-config/rpi4.nix
+    ];
+    }
+    ```
+1. Add password to user with `passwd dane` **before rebooting**
+1. Reboot and login normally
+1. Once satisfied that the system is working, delete the old system generations to remove easy root access, etc: `sudo nix-collect-garbage -d`
+
+## Update config
+Pull changes from upstream in `/etc/nixos/radio-nix-config/` and then rebuild. Note, git may need to be ran as sudo here:
 ```bash
-sudo nixos-rebuild switch -I nixos-config=./<PLATFORM>.nix
+cd /etc/nixos/radio-nix-config
+git pull
+sudo nixos-rebuild switch
 ```
 
 # Radio software instructions
