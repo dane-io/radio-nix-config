@@ -9,7 +9,7 @@
 1. Add `git` to the packages in the default configuration and run `nixos-rebuild switch`
    - When doing this, leave the root shell open so you don't lose sudo privileges after regenerating the config
 1. Clone this repo on the RPi under `/etc/nixos/`. Should result in a folder at `/etc/nixos/radio-nix-config/`
-1. Edit `/etc/nixos/configuration.nix` to be the following and run `nixos-rebuild switch` again:
+1. Replace `/etc/nixos/configuration.nix` to be the following (content also in [configuration_replacement.nix](configuration_replacement.nix)) and run `nixos-rebuild switch` again:
     ```nix
     { ... }:
 
