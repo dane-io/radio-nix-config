@@ -28,6 +28,23 @@
     ];
   };
 
+  system.autoUpgrade = {
+    enable = true;
+    channel = "https://channels.nixos.org/nixos-26.05";
+    dates = "daily";
+    allowReboot = false;
+  };
+
+  # Keep the newest 10 generations available in the boot menu.
+  boot.loader.systemd-boot.configurationLimit = 10;
+
+  # Remove system generations and store paths older than 30 days.
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   environment.systemPackages = with pkgs; [
     git
     xfce4-whiskermenu-plugin
