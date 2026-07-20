@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./radio-config/rpi4.nix
+    ./radio-nix-config/rpi4.nix
   ];
 }
