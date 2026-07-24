@@ -4,7 +4,10 @@
   imports = [ 
     ./configuration.nix
     /etc/nixos/hardware-configuration.nix
+    <nixos-hardware/raspberry-pi/4>
   ];
+
+  hardware.raspberry-pi."4".fkms-3d.enable = true;
 
   networking.hostName = "radio";     
 
