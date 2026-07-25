@@ -53,6 +53,7 @@
     pavucontrol
     fastfetch
     htop
+    bat
     usbutils
   ];
 
