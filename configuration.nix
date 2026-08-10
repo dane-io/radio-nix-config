@@ -31,7 +31,7 @@
   system.autoUpgrade = {
     enable = true;
     channel = "https://channels.nixos.org/nixos-26.05";
-    dates = "daily";
+    dates = "weekly";
     allowReboot = false;
   };
 
@@ -39,7 +39,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   environment.systemPackages = with pkgs; [
