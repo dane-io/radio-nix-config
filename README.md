@@ -37,13 +37,18 @@ sudo nixos-rebuild switch
 - Setup -> Transceiver:
    - Rig: `Xiegu-G90`
    - Choose serial device
-   - Baud: `115200`
+   - Baud: `19200`
+   - Stop bits: 2
+   - RTS/CTS, RTS +12V, DTR +12V: off
 
 ## WSJT-X setup
 ### Radio tab
 - Radio: `FLRig`
 - CAT server: `127.0.0.1:12345`
 - PTT method: `CAT`
+
+### General tab
+- Select "Double-click on call sets Tx enable"
 
 ### Audio tab
 - Input: `alsa_input`
